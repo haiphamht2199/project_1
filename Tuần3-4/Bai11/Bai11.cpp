@@ -1,42 +1,46 @@
 
 #include <iostream>
 using namespace std;
-void copymg(int a[], int m[], int k, int l)
-{
-	int j, i = k;
-	for(j = 0; j < l - k + 1; j++, i++)
-		m[j] = a[i];
+bool A_con_B(int A[], int n, int B[], int m){
+int i, j, k;
+    bool res = false;
+    if(n > m)
+        return false;
+    for(i = 0; i < m; i++)
+    {
+        if(A[0] == B[i] && m - i >= n)
+        {
+            k = i + 1;
+            res = true;
+            for(j = 1; j < n; j++, k++)
+            {
+                if(A[j] == B[k])
+                {
+                    res = true;
+                }
+            }
+
+        }
+    }
+    return res;
 }
 int main(){
-int n;
-	cout<<"Nhap N=";
-	cin>>n;
-	int a[n], m[n];
-    int i, MAX, max, k, l;
-	for(int i=0;i<n;i++){
+int n,m;
+cout<<"Nhap N=";
+cin>>n;
+int a[n];
+for(int i=0;i<n;i++){
     cin>>a[i];
 }
-	for(i = 1, MAX = max = 1; i < n+ 1; i++)	{
-		if(a[i - 1] <a[i])	{
-			max++; l = i; k = l - max + 1;
-		}
-		else	{
-			if(max > MAX)	{
-				MAX = max;
-				copymg(a, m, k, l);
-			}
-			max = 1;
-		}
-	}
-	if(MAX == 1)
-		cout<<"Khong co day thoa yeu cau";
-	else	{
-            cout<<MAX<<endl;
-		cout<<"Day CSGN lien tiep dai nhat la:";
-	for(int i = 0; i < MAX; i++)	{
-		cout<<m[i]<<" ";
-	}
-	}
+cout<<"Nhap M=";
+cin>>m;
+int b[m];
+for(int j=0;j<m;j++){
+    cin>>b[j];
 }
-
-
+if(A_con_B(a,n,b,m)){
+    cout<<"A con cua B";
+}else{
+    cout<<"A khong phai con B";
+}
+}

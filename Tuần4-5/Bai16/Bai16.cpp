@@ -1,4 +1,5 @@
 
+
 #include <iostream>
 using namespace std;
 bool A_con_B(string A , int n, string B, int m){
@@ -26,10 +27,10 @@ int i, j, k;
 }
 int main(){
 string a,b;
-cout<<"Nhap N=";
+cout<<"Nhap a=";
 getline(cin,a);
 
-cout<<"Nhap M=";
+cout<<"Nhap b=";
 getline(cin,b);
 int n=a.length();
 int m=b.length();
